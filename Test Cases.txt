@@ -1,9 +1,32 @@
-1. What is the salary for Data Analyst? SELECT job_salary FROM job_post WHERE job_position='Software Engineer';
+1. What is the salary for Software Engineer? 
+SELECT job_salary FROM job_post WHERE job_position='Software Engineer';
+Relational_Algebra:
+π job_salary
+ σ job_position = "Software Engineer" job_post
 
-2. list the companies with ratings greater than 3? SELECT c.company_name,cr.ratings_overall FROM company_ratings cr inner join company c on cr.company_id = c.id WHERE cr.ratings_overall > 3;
+2. list the companies with ratings greater than 3? 
+SELECT c.company_name,cr.ratings_overall FROM company_ratings cr inner join company c on cr.company_id = c.id WHERE cr.ratings_overall > 3;
+Relational_Algebra:
+π c. company_name, cr.ratings_overall
+ σ cr. ratings_overall > 3
+  (ρ cr company_ratings ⋈ cr.company_id = c . id
+   ρ c company)
 
-3. What are the salaries offered in Boston? SELECT job_salary FROM job_post WHERE job_location ='Boston'; 
+3. What are the salaries offered in Boston? 
+SELECT job_salary FROM job_post WHERE job_location ='Boston';
+Relational_Algebra:
+π job_salary
+ σ job_location = "Boston" job_post
 
-4. What is the salary for Data Analyst? select job_salary from job_post where job_position='Software Engineer';
+4. List all Co-Op
+Query:
+select * from job_post where job_position like '%Co-Op%';
+Relational_Algebra:
+σ job_position LIKE "%Co-Op%" job_post
 
-5. Which is the least-paying job in Texas? select MIN(job_salary) from job_post where job_location='Texas'
+5. Which is the least-paying job in Texas? 
+select MIN(job_salary) from job_post where job_location='Texas'
+Relational_Algebra:
+π MIN (job_salary)
+ γ MIN (job_salary)
+  σ job_location = "Texas" job_post
