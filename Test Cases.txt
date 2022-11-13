@@ -1,0 +1,9 @@
+1. What is the salary for Data Analyst? SELECT job_salary FROM job_post WHERE job_position='Software Engineer';
+
+2. list the companies with ratings greater than 3? SELECT c.company_name,cr.ratings_overall FROM company_ratings cr inner join company c on cr.company_id = c.id WHERE cr.ratings_overall > 3;
+
+3. What are the salaries offered in Boston? SELECT job_salary FROM job_post WHERE job_location ='Boston'; 
+
+4. What is the salary for Data Analyst? select job_salary from job_post where job_position='Software Engineer';
+
+5. Which is the least-paying job in Texas? select MIN(job_salary) from job_post where job_location='Texas'
